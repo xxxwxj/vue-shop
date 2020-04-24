@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-icon class="back" name="arrow-back-outline" (click)="back()"></ion-icon>
+    <ion-title>笔记</ion-title>
+    <ion-icon name="checkmark-outline" class="check" *ngIf="flag === 1" (click)="check(text)"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-toolbar>
+    <ion-select interface="popover" mode="md" value={{type}}>
+      <ion-select-option value="1">旅游</ion-select-option>
+      <ion-select-option value="2">个人</ion-select-option>
+      <ion-select-option value="3">生活</ion-select-option>
+      <ion-select-option value="4">工作</ion-select-option>
+      <ion-select-option value="5">未分类</ion-select-option>
+    </ion-select>
+    <ion-label>今天 00：00</ion-label>
+  </ion-toolbar>
+  <ion-textarea (ionFocus)="focus()" #text value={{noteDetial}}></ion-textarea>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="footer">
+    <ion-grid *ngIf="flag === 1">
+      <ion-row>
+
+        <ion-col>
+          <div>
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>清单</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="text-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>文本编辑</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="image-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>图片</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="mic-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>语音</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="pencil-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>手写</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid *ngIf=" flag === 0">
+      <ion-row>
+        <ion-col>
+          <div>
+            <ion-icon name="share-social-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>分享</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="star-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>收藏</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="trash-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>删除</ion-label>
+          </div>
+        </ion-col>
+        <ion-col>
+          <div>
+            <ion-icon name="print-outline"></ion-icon>
+          </div>
+          <div style="margin-top: -5px;">
+            <ion-label>打印</ion-label>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>
